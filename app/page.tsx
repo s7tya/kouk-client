@@ -25,9 +25,9 @@ type Post = {
 }
 
 export default async function Home() {
-  const raw_posts: RawPost[] = await fetch(`http://localhost:4000/posts`).then(res => res.json());
+  const raw_posts: RawPost[] = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/posts`).then(res => res.json());
   const posts: Post[] = await Promise.all(raw_posts.map(async (raw_post) => {
-    const raw_user: RawUser = await fetch(`http://localhost:4000/users/${raw_post.author_id}`).then(res => res.json())
+    const raw_user: RawUser = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/users/${raw_post.author_id}`).then(res => res.json())
 
     const post: Post = {
       id: raw_post.id,

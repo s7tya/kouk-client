@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 
 export const create_post = async (input: FormData) => {
-  const resp = await fetch(`http://localhost:4000/posts`, {
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/posts`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${cookies().get("kouk_token")?.value}`,
@@ -20,7 +20,7 @@ export const create_post = async (input: FormData) => {
 }
 
 export const create_user = async (input: FormData) => {
-  const resp = await fetch(`http://localhost:4000/users`, {
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
