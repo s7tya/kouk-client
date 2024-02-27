@@ -41,14 +41,16 @@ export default async function Home() {
   }))
 
   return (
-    <div className="p-4 flex flex-col gap-2">
+    <div className="p-4 max-w-[600px] mx-auto space-y-4">
       <Form />
-      {posts.map((post) => (
-        <div key={post.id}>
-          <p><a href={`/users/${post.author.screen_name}`} className="flex gap-1 text-sm"><span className="font-bold">{post.author.display_name}</span><span>@{post.author.screen_name}</span></a></p>
-          <p>{post.body}</p>
-        </div>
-      ))}
+      <div className="flex flex-col gap-2">
+        {posts.map((post) => (
+          <div key={post.id} className="px-2 py-0.5">
+            <p><a href={`/users/${post.author.screen_name}`} className="flex gap-1 text-sm"><span className="font-bold">{post.author.display_name}</span><span>@{post.author.screen_name}</span></a></p>
+            <p>{post.body}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
