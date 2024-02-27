@@ -1,6 +1,4 @@
-import { CreatePostForm } from "./CreatePostForm";
 import { Form } from "./Form";
-import { SignUpForm } from "./SignUpForm";
 
 type RawPost = {
   id: string,
